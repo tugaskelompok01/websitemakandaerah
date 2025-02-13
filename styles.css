@@ -1,0 +1,392 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    text-align: center;
+    color: #333;
+}
+
+
+/* Header lebih modern dengan efek gradient */
+header {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(90deg, #6a1b9a, #9c27b0);
+    background-size: 400% 400%;
+    animation: gradientMove 6s infinite alternate;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animasi gradient bergerak */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Navbar container */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Tombol hamburger */
+/* Pastikan posisi ikon hamburger */
+.menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Saat menu dibuka, ubah ikon */
+.menu-icon.open {
+    transform: rotate(180deg);
+}
+
+/* Sembunyikan ikon close secara default */
+.menu-close {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    z-index: 1001; /* Pastikan lebih besar dari navbar */
+
+}
+
+/* Ketika navbar dibuka, tampilkan tombol close */
+.nav-open .menu-close {
+    display: block;
+}
+
+/* Sembunyikan tombol hamburger saat navbar terbuka */
+.nav-open .menu-icon {
+    display: none;
+}
+
+.nav-open body {
+    overflow: hidden;
+}
+
+.nav-open nav {
+    transform: translateY(0);
+}
+
+
+/* Navigasi */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Menu ul dan li */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    text-align: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 16px;
+    display: block;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transform: scale(1.08);
+    transition: all 0.3s ease;
+}
+
+/* Kotak pencarian */
+#searchBox {
+    width: 80%;
+    max-width: 300px;
+    padding: 12px;
+    border-radius: 20px;
+    border: 2px solid #8e24aa;
+    outline: none;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    margin: 10px auto;
+    display: block;
+}
+
+#searchBox:focus {
+    border-color: #d500f9;
+    box-shadow: 0 0 10px rgba(255, 64, 129, 0.6);
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    #searchBox {
+        transform: translateY(-10px); /* Mengangkat sedikit ke atas */
+        margin: 0 auto;
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Muncul di mobile */
+    }
+
+    /* Navbar hanya muncul saat dibuka di mobile */
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40vh; /* Hanya setengah layar */
+        background: purple;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        justify-content: center;
+    }
+
+ /* Ketika navbar dibuka */
+ nav.nav-open {
+    transform: translateY(0);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 16px;
+    display: block;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transform: scale(1.05);
+}
+
+/* Tombol hamburger */
+.menu-icon, .menu-close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+
+.menu-close {
+    display: none; /* Sembunyikan tombol close secara default */
+}
+}
+
+
+.makanan-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.makanan {
+    flex: 1 1 250px;
+    max-width: 300px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(142, 36, 170, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.makanan:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(142, 36, 170, 0.7);
+    opacity: 0.9;
+}
+
+.makanan img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+footer {
+    background: linear-gradient(90deg, #4a148c, #8e24aa);
+    color: white;
+    padding: 50px 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: left;
+    align-items: start;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+footer.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer:hover {
+    background: linear-gradient(90deg, #6a1b9a, #d500f9);
+}
+
+footer > div {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    padding-right: 20px;
+    transition: transform 0.3s;
+}
+
+footer > div:hover {
+    transform: scale(1.05);
+}
+
+.kelompok h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.kelompok ul li {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #ff80ab;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.kelompok ul li:hover {
+    color: #d500f9;
+    transform: scale(1.1);
+}
+
+.foto-kelompok img {
+    width: 100%;
+    max-width: 180px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.foto-kelompok img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+.feedback {
+    background: linear-gradient(135deg, #ff00ff, #aa00ff);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    max-width: 350px;
+    margin: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.feedback:hover {
+    transform: scale(1.05);
+}
+
+.feedback input,
+.feedback textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback input:focus,
+.feedback textarea:focus {
+    border-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Efek kesalahan input */
+.feedback input.error {
+    border-color: red;
+    animation: shake 0.3s ease-in-out;
+}
+
+/* Animasi shake */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+/* Pesan error */
+.error-text {
+    color: yellow;
+    font-size: 12px;
+    display: none;
+    margin-top: -8px;
+    font-weight: bold;
+}
+
+.feedback button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+    box-shadow: 0 3px 6px rgba(255, 64, 129, 0.3);
+}
+
+.feedback button:hover {
+    background-color: #e60073;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(255, 64, 129, 0.4);
+}
+
