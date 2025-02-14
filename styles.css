@@ -49,6 +49,13 @@ header {
     transition: transform 0.3s ease-in-out;
 }
 
+@media (min-width: 1024px) {
+    .menu-icon {
+        display: none;
+    }
+}
+
+
 /* Saat menu dibuka, ubah ikon */
 .menu-icon.open {
     transform: rotate(180deg);
@@ -219,6 +226,7 @@ nav ul li a:hover {
 }
 }
 
+/* Container Flex */
 .makanan-container {
     display: flex;
     flex-wrap: wrap;
@@ -227,27 +235,29 @@ nav ul li a:hover {
     justify-content: center;
 }
 
+/* Kotak Makanan */
 .makanan {
     flex: 1 1 250px;
     max-width: 300px;
     background: linear-gradient(45deg, #8e24aa, #ff80ab, #d500f9);
     background-size: 200% 200%;
     padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(142, 36, 170, 0.4);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(142, 36, 170, 0.5);
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, background 2s;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     text-align: center;
     position: relative;
     overflow: hidden;
     transform-style: preserve-3d;
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(10px);
 }
 
+/* Efek Hover */
 .makanan:hover {
-    transform: rotateX(5deg) rotateY(5deg) translateY(-10px);
-    box-shadow: 0 0 25px rgba(142, 36, 170, 0.7);
+    transform: rotateX(8deg) rotateY(8deg) translateY(-12px);
+    box-shadow: 0 0 30px rgba(142, 36, 170, 0.8);
     background-position: 100% 100%;
 }
 
@@ -256,19 +266,20 @@ nav ul li a:hover {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 10px;
+    border-radius: 15px;
     border: 3px solid transparent;
-    animation: neonGlow 1.5s infinite alternate;
+    animation: neonGlow 1.8s infinite alternate ease-in-out;
 }
 
+/* Efek Glow Animasi */
 @keyframes neonGlow {
     0% {
-        border-color: rgba(255, 64, 129, 0.5);
-        box-shadow: 0 0 5px rgba(255, 64, 129, 0.4);
+        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 15px rgba(142, 36, 170, 0.4);
     }
     100% {
-        border-color: rgba(255, 64, 129, 1);
-        box-shadow: 0 0 20px rgba(255, 64, 129, 0.8);
+        border-color: rgba(255, 255, 255, 1);
+        box-shadow: 0 0 30px rgba(142, 36, 170, 0.9);
     }
 }
 
@@ -276,33 +287,60 @@ nav ul li a:hover {
 .makanan.show {
     opacity: 1;
     transform: translateY(0);
+    transition: opacity 1.2s ease, transform 1s ease;
 }
 
-/* Efek Gambar */
+/* Styling Gambar dan Teks */
+.makanan a {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
 .makanan img {
     width: 100%;
-    height: 180px;
+    height: 190px;
     object-fit: cover;
     border-radius: 10px;
+    transition: transform 0.4s ease-in-out;
+}
+
+.makanan h3 {
+    font-size: 18px;
+    background: rgba(168, 0, 235, 0.75);
+    padding: 12px;
+    margin: 0;
+    border-radius: 0 0 12px 12px;
+    transition: background 0.4s ease-in-out;
+}
+
+.makanan:hover img {
+    transform: scale(1.15);
+}
+
+.makanan:hover h3 {
+    background: rgba(247, 0, 255, 0.9);
 }
 
 /* Efek Cahaya Kecil Bergerak */
 .makanan::before {
     content: "";
     position: absolute;
-    width: 120px;
-    height: 120px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 10%, transparent 70%);
-    top: -50px;
-    left: -50px;
-    opacity: 0.8;
-    animation: sparkle 3s infinite linear alternate;
+    width: 130px;
+    height: 130px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 10%, transparent 80%);
+    top: -60px;
+    left: -60px;
+    opacity: 0.85;
+    animation: sparkle 3s infinite linear alternate-reverse;
 }
 
 @keyframes sparkle {
-    0% { transform: translateX(0) translateY(0); }
-    100% { transform: translateX(100px) translateY(100px); }
+    0% { transform: translateX(0) translateY(0) scale(1); opacity: 0.8; }
+    50% { transform: translateX(80px) translateY(80px) scale(1.2); opacity: 1; }
+    100% { transform: translateX(120px) translateY(120px) scale(1); opacity: 0.6; }
 }
+
 
 
 footer {
@@ -346,46 +384,164 @@ footer.show {
 
 
 footer > div {
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
-    padding-right: 20px;
-    transition: transform 0.3s;
+    border-right: none; /* Menghilangkan garis */
 }
 
-footer > div:hover {
-    transform: scale(1.05);
+
+.kelompok {
+    margin-top: -70px;
+    text-align: center;
+    padding: 20px;
 }
 
 .kelompok h4 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.kelompok ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .kelompok ul li {
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: #ff80ab;
+    background: rgba(255, 255, 255, 0.15); /* Efek transparan */
+    backdrop-filter: blur(10px); /* Blur efek glassmorphism */
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
     font-weight: bold;
+    color: #ff80ab;
+    text-align: center;
     cursor: pointer;
-    transition: color 0.3s, transform 0.3s;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    animation: fadeInUp 0.6s ease-out;
 }
 
+/* Efek Hover */
 .kelompok ul li:hover {
-    color: #d500f9;
-    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+    color: #fff;
 }
 
+/* Garis animasi saat hover */
+.kelompok ul li::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.kelompok ul li:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+/* Efek animasi muncul */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.foto-kelompok {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -20px;
+    position: relative;
+    animation: slideUp 0.8s ease-in-out;
+    margin: 10px;
+}
+
+/* Frame kaca di belakang gambar */
+.foto-kelompok::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    z-index: -1;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Efek hover pada frame kaca */
+.foto-kelompok:hover::before {
+    transform: scale(1.05);
+}
+
+/* Foto utama */
 .foto-kelompok img {
-    width: 100%;
-    max-width: 180px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    max-width: 320px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+/* Efek zoom-in saat hover */
 .foto-kelompok img:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
 }
+
+/* Nama atau deskripsi di bawah foto */
+.foto-kelompok p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Muncul perlahan saat hover */
+.foto-kelompok:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animasi slide-up saat muncul */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 
 .feedback {
     background: linear-gradient(135deg, #ff00ff, #aa00ff);
@@ -397,6 +553,7 @@ footer > div:hover {
     max-width: 350px;
     margin: auto;
     transition: transform 0.3s ease-in-out;
+    margin-top: -5px;
 }
 
 .feedback:hover {
