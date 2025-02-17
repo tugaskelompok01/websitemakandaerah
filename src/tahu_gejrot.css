@@ -1,0 +1,332 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* Variabel warna */
+:root {
+  --primary-purple: #800080;
+  --secondary-pink: #FF69B4;
+  --accent-purple: #9932CC;
+  --gradient-start: #800080;
+  --gradient-end: #9932CC;
+  --text-color: #ffffff;
+  --background-dark: #2a2a2a;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: var(--primary-purple);
+  padding: 15px 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1s ease-in-out;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+/* Navigation container */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Navbar menu */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+nav ul li {
+  margin: 10px;
+}
+
+nav ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: var(--secondary-pink);
+  left: 0;
+  bottom: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Hamburger menu */
+.menu-icon, .menu-close {
+  font-size: 2rem;
+  cursor: pointer;
+  display: none; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth opacity change */
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  nav ul {
+    display: none; /* Hide menu by default on mobile */
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+    opacity: 0;
+    transform: translateY(-20px); /* Start position for animation */
+  }
+
+  nav ul li {
+    margin: 15px 0;
+  }
+
+  .menu-icon {
+    display: block; /* Show hamburger icon */
+  }
+
+  .menu-close {
+    display: none; /* Initially hidden */
+  }
+
+  /* Tampilkan menu ketika class open ditambahkan */
+  #navMenu.open {
+    display: flex; /* Show menu when active */
+    opacity: 1;
+    transform: translateY(0); /* Animate to final position */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+}
+
+
+/* Section */
+section {
+  background-color: var(--accent-purple);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1.5s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(255, 105, 180, 0.4);
+}
+
+/* Gambar di section Sejarah */
+#sejarah img {
+  width: 70%; /* Menurunkan ukuran gambar menjadi 70% dari lebar kontainer */
+  height: auto; /* Mempertahankan rasio aspek gambar */
+  border-radius: 10px; /* Sudut membulat seperti pada galeri */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan lembut untuk gambar */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi halus */
+  display: block; /* Memastikan gambar tampil sebagai blok */
+  margin: 0 auto; /* Menjaga gambar tetap terpusat */
+}
+
+/* Efek saat hover pada gambar sejarah */
+#sejarah img:hover {
+  transform: scale(1.05); /* Sedikit zoom */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Bayangan sedikit lebih besar dan lebih halus */
+}
+
+/* Styling untuk section bahan pembuatan */
+#bahan {
+  background-color: var(--accent-purple); /* Warna latar belakang konsisten */
+  padding: 20px; /* Memberikan padding agar tidak terlalu padat */
+  border-radius: 10px; /* Sudut membulat pada kotak */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+  margin-top: 20px; /* Ruang di atas section */
+}
+
+/* Judul di section bahan */
+#bahan h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-color); /* Menggunakan warna teks yang kontras */
+  margin-bottom: 15px; /* Spasi di bawah judul */
+  text-align: center; /* Menengahkan judul */
+}
+
+/* Styling untuk daftar bahan */
+#bahan ul {
+  list-style: none; /* Menghilangkan bullet points */
+  padding-left: 0; /* Menghilangkan indentasi */
+  line-height: 1.8; /* Jarak antar item yang nyaman */
+}
+
+/* Styling untuk tiap item daftar bahan */
+#bahan ul li {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 10px; /* Memberikan jarak antar item */
+  padding-left: 25px; /* Memberikan ruang di sebelah kiri */
+  position: relative; /* Untuk menambahkan icon sebelum teks */
+}
+
+/* Menambahkan icon sebelum tiap item bahan */
+#bahan ul li::before {
+  content: "✔"; /* Menambahkan tanda ceklis */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--secondary-pink); /* Warna ikonnya */
+  font-size: 1.3rem; /* Ukuran icon */
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  #bahan h2 {
+    font-size: 1.8rem; /* Ukuran font lebih kecil di layar kecil */
+  }
+  
+  #bahan ul li {
+    font-size: 1rem; /* Ukuran font lebih kecil */
+  }
+}
+
+
+/* Galeri */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px; /* Jarang antar gambar tetap ada */
+}
+
+/* Styling gambar dalam galeri */
+.gallery-container img {
+  width: 100%;
+  height: 250px; /* Menjaga ukuran gambar tetap proporsional */
+  object-fit: cover;
+  border-radius: 10px; /* Sudut sedikit membulat */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Transisi lebih halus */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan ringan yang halus */
+}
+
+/* Efek hover pada gambar */
+.gallery-container img:hover {
+  transform: scale(1.05); /* Sedikit zoom */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar tapi tetap natural */
+  filter: brightness(1.1); /* Meningkatkan kecerahan gambar dengan efek lembut */
+}
+
+/* Responsivitas untuk layar lebih kecil */
+@media (max-width: 768px) {
+  .gallery-container img {
+    height: 200px; /* Ukuran gambar sedikit lebih kecil pada layar kecil */
+  }
+}
+
+
+
+/* Tombol */
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary-purple), var(--secondary-pink));
+  color: var(--text-color);
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(255, 105, 180, 0.3);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(255, 105, 180, 0.6);
+}
+
+.hidden {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.show {
+  max-height: 500px;
+  opacity: 1;
+}
+/* Efek Parallax */
+.parallax {
+  background: url('img/tahu-gejrot-bg.jpg') center/cover fixed no-repeat;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-color);
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Responsivitas */
+@media (max-width: 1024px) {
+  header h1 { font-size: 2.2rem; }
+  .gallery-container { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .parallax { font-size: 1.8rem; height: 250px; }
+}
+
+@media (max-width: 768px) {
+  header h1 { font-size: 2rem; }
+  nav ul { flex-direction: column; text-align: center; }
+  section { margin: 15px; padding: 15px; }
+  .section-content { flex-direction: column; text-align: center; }
+  .section-content img { width: 80%; }
+  .btn { width: 100%; text-align: center; }
+  .parallax { font-size: 1.5rem; height: 200px; }
+}
+
+@media (max-width: 480px) {
+  header h1 { font-size: 1.8rem; }
+  nav ul li { margin: 5px; }
+  nav ul li a { font-size: 0.9rem; padding: 8px 12px; }
+  .gallery-container { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+  .parallax { font-size: 1.2rem; height: 180px; }
+  .btn { font-size: 0.9rem; padding: 10px 15px; }
+}

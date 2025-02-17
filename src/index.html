@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makanan Daerah Indonesia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <h1>Makanan Daerah Indonesia</h1>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div> <!-- Ikon Hamburger -->
+            <div class="menu-close" onclick="toggleMenu()">✖</div> <!-- Ikon Close -->
+        </div>
+        <nav id="navMenu">
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="daftar_makanan.html">Daftar Makanan</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+            <input type="text" id="searchBox" placeholder="Cari makanan...">
+        </nav>
+    </header>
+        
+    <section class="makanan-container">
+        <div class="makanan">
+            <a href="tahu_gejrot.html"></a>
+                <img src="tahu_gejrot.jpeg" alt="Tahu Gejrot">
+                <h3>Tahu Gejrot</h3>
+            </a>
+        </div>
+        <div class="makanan">
+            <a href="rawon.html">
+                <img src="rawon.jpeg" alt="Rawon">
+                <h3>Rawon</h3>
+            </a>
+        </div>
+        <div class="makanan">
+            <a href="mieaceh.html">
+                <img src="mie_aceh.jpeg" alt="Mie Aceh">
+                <h3>Mie Aceh</h3>
+            </a>
+        </div>
+        <div class="makanan">
+            <a href="gudeg.html">
+                <img src="gudeg.jpeg" alt="Gudeg">
+                <h3>Gudeg</h3>
+            </a>
+        </div>
+        <div class="makanan">
+            <a href="ketoprak.html">
+                <img src="ketoprak.jpeg" alt="Ketoprak">
+                <h3>Ketoprak</h3>
+            </a>
+        </div>
+        <div class="makanan">
+            <a href="rendang.html">
+                <img src="rendang.jpeg" alt="Rendang">
+                <h3>Rendang</h3>
+            </a>
+        </div>
+        <div class="makanan">
+            <a href="cotomakassar.html">
+                <img src="coto_makasar.jpeg" alt="Coto Makassar">
+                <h3>Coto Makassar</h3>
+            </a>
+        </div>
+        <div class="makanan">
+            <a href="papeda.html">
+                <img src="papeda.jpeg" alt="Papeda">
+                <h3>Papeda</h3>
+            </a>
+        </div>
+    </section>
+    
+    
+    <footer>
+        <div class="kelompok">
+            <h4>ANGGOTA KELOMPOK 2</h4>
+            <div class="garis"></div>
+            <ul>
+                <li>Telyana Filomena Neno Sila</li>
+                <li>Fitri Khaisah Safani</li>
+                <li>Gilby Gamaliel. H</li>
+                <li>Dafa Candika Winata</li>
+                <li>Sabrina Andhita Alkaf</li>
+            </ul>
+        </div>
+        <div class="foto-kelompok">
+            <h4>Foto Kelompok</h4>
+            <div class="garis"></div>
+            <img src="kelompok.jpeg" alt="Foto Kelompok">
+        </div>
+        <div class="feedback">
+            <h4>Kritik & Saran</h4>
+            <div class="garis"></div>
+            <form>
+                <input type="text" id="namaInput" placeholder="Nama Anda">
+                <textarea placeholder="Masukkan kritik dan saran..."></textarea>
+                <button type="submit">Kirim</button>
+                <p id="errorText" class="error-text">Nama harus minimal 3 huruf dan tidak boleh angka atau simbol!</p>
+            </form>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

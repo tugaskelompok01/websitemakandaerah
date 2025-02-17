@@ -1,0 +1,674 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    text-align: center;
+    color: #333;
+}
+
+
+/* Header lebih modern dengan efek gradient */
+/* Pastikan untuk mengimpor font Montserrat dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
+header {
+    font-size: 16px;              /* Ukuran font dikurangi */
+    font-family: 'Montserrat', sans-serif;  /* Font modern dan bersih */
+    
+    font-weight: 600;
+    text-align: center;
+    padding: 8px 12px;            /* Padding lebih kecil */
+    background: linear-gradient(90deg, #6a1b9a, #9c27b0);
+    background-size: 400% 400%;
+    animation: gradientMove 6s infinite alternate;
+    color: white;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    header {
+        font-size: 10px;          /* Ukuran font lebih kecil di mobile */
+        padding: 6px 10px;        /* Padding disesuaikan untuk tampilan mobile */
+    }
+}
+
+@media (max-width: 375px) {
+    header {
+        font-size: 11px;          /* Ukuran font lebih kecil di mobile */
+        padding: 6px 10px;        /* Padding disesuaikan untuk tampilan mobile */
+    }
+}
+
+
+
+/* Animasi gradient bergerak */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Navbar container */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Tombol hamburger */
+/* Pastikan posisi ikon hamburger */
+.menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+    .menu-icon {
+        display: none;
+    }
+}
+
+
+/* Saat menu dibuka, ubah ikon */
+.menu-icon.open {
+    transform: rotate(180deg);
+}
+
+/* Sembunyikan ikon close secara default */
+.menu-close {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    z-index: 1001; /* Pastikan lebih besar dari navbar */
+
+}
+
+/* Ketika navbar dibuka, tampilkan tombol close */
+.nav-open .menu-close {
+    display: block;
+}
+
+/* Sembunyikan tombol hamburger saat navbar terbuka */
+.nav-open .menu-icon {
+    display: none;
+}
+
+.nav-open body {
+    overflow: hidden;
+}
+
+.nav-open nav {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.nav-open {
+    padding-top: 100px; /* Memberikan ruang kosong */
+}
+
+
+/* Navigasi */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1000;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Menu ul dan li */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    text-align: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 16px;
+    display: block;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transform: scale(1.08);
+    transition: all 0.3s ease;
+}
+
+.menu-icon:hover, .menu-close:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+}
+
+.menu-container.menu-visible {
+    max-height: 300px; /* Sesuaikan tinggi menu agar tidak terlalu kosong */
+    padding: 20px 0; /* Beri ruang atas & bawah agar terlihat lebih proporsional */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Kotak pencarian */
+#searchBox {
+    width: 80%;
+    max-width: 300px;
+    padding: 12px;
+    border-radius: 20px;
+    border: 2px solid #8e24aa;
+    outline: none;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    margin: 10px auto;
+    display: block;
+}
+
+#searchBox:focus {
+    border-color: #d500f9;
+    box-shadow: 0 0 10px rgba(255, 64, 129, 0.6);
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    #searchBox {
+        transform: translateY(-10px); /* Mengangkat sedikit ke atas */
+        margin: 0 auto;
+        max-width: 200px;
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    /* Navbar hanya muncul saat dibuka di mobile */
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto; /* Hanya setengah layar */
+        background: purple;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        justify-content: center;
+        padding: 20px 0;
+    }
+
+ /* Ketika navbar dibuka */
+ nav.nav-open {
+    transform: translateY(0);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 6px 10px;
+    display: block;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transform: scale(1.05);
+}
+
+/* Tombol hamburger */
+.menu-icon, .menu-close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 26px;
+    cursor: pointer;
+    color: white;
+    margin: 5px;
+}
+
+.menu-close {
+    display: none; /* Sembunyikan tombol close secara default */
+    font-size: 24px;
+
+    
+}
+}
+
+/* Container Flex */
+.makanan-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Kotak Makanan */
+.makanan {
+    flex: 1 1 250px;
+    max-width: 300px;
+    background: linear-gradient(45deg, #8e24aa, #ff80ab, #d500f9);
+    background-size: 200% 200%;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(142, 36, 170, 0.5);
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Efek Hover */
+.makanan:hover {
+    transform: rotateX(8deg) rotateY(8deg) translateY(-12px);
+    box-shadow: 0 0 30px rgba(142, 36, 170, 0.8);
+    background-position: 100% 100%;
+}
+
+/* Efek Glow Neon */
+.makanan::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    border: 3px solid transparent;
+    animation: neonGlow 1.8s infinite alternate ease-in-out;
+}
+
+/* Efek Glow Animasi */
+@keyframes neonGlow {
+    0% {
+        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 15px rgba(142, 36, 170, 0.4);
+    }
+    100% {
+        border-color: rgba(255, 255, 255, 1);
+        box-shadow: 0 0 30px rgba(142, 36, 170, 0.9);
+    }
+}
+
+/* Efek Scroll Reveal */
+.makanan.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1.2s ease, transform 1s ease;
+}
+
+/* Styling Gambar dan Teks */
+.makanan a {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.makanan img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.4s ease-in-out;
+}
+
+.makanan h3 {
+    font-size: 18px;
+    background: rgba(168, 0, 235, 0.75);
+    padding: 12px;
+    margin: 0;
+    border-radius: 0 0 12px 12px;
+    transition: background 0.4s ease-in-out;
+}
+
+.makanan:hover img {
+    transform: scale(1.15);
+}
+
+.makanan:hover h3 {
+    background: rgba(247, 0, 255, 0.9);
+}
+
+/* Efek Cahaya Kecil Bergerak */
+.makanan::before {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 10%, transparent 80%);
+    top: -60px;
+    left: -60px;
+    opacity: 0.85;
+    animation: sparkle 3s infinite linear alternate-reverse;
+}
+
+@keyframes sparkle {
+    0% { transform: translateX(0) translateY(0) scale(1); opacity: 0.8; }
+    50% { transform: translateX(80px) translateY(80px) scale(1.2); opacity: 1; }
+    100% { transform: translateX(120px) translateY(120px) scale(1); opacity: 0.6; }
+}
+
+
+
+footer {
+    background: linear-gradient(90deg, #4a148c, #8e24aa);
+    color: white;
+    padding: 50px 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: left;
+    align-items: start;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+footer:hover {
+    background: linear-gradient(90deg, #6a1b9a, #d500f9);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+
+footer.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+footer > div {
+    border-right: none; /* Menghilangkan garis */
+}
+
+
+.kelompok {
+    margin-top: -70px;
+    text-align: center;
+    padding: 20px;
+}
+
+.kelompok h4 {
+    font-size: 19px;
+    color: #fff;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.kelompok ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.kelompok ul li {
+    background: rgba(255, 255, 255, 0.15); /* Efek transparan */
+    backdrop-filter: blur(10px); /* Blur efek glassmorphism */
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ff80ab;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Efek Hover */
+.kelompok ul li:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* Garis animasi saat hover */
+.kelompok ul li::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.kelompok ul li:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+/* Efek animasi muncul */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.foto-kelompok {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -20px;
+    position: relative;
+    animation: slideUp 0.8s ease-in-out;
+    margin: 10px;
+}
+
+/* Frame kaca di belakang gambar */
+.foto-kelompok::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    z-index: -1;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Efek hover pada frame kaca */
+.foto-kelompok:hover::before {
+    transform: scale(1.05);
+}
+
+/* Foto utama */
+.foto-kelompok img {
+    max-width: 320px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Efek zoom-in saat hover */
+.foto-kelompok img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+}
+
+/* Nama atau deskripsi di bawah foto */
+.foto-kelompok p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Muncul perlahan saat hover */
+.foto-kelompok:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animasi slide-up saat muncul */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.feedback {
+    background: linear-gradient(135deg, #ff00ff, #aa00ff);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    max-width: 350px;
+    margin: auto;
+    transition: transform 0.3s ease-in-out;
+    margin-top: -5px;
+}
+
+.feedback:hover {
+    transform: scale(1.05);
+}
+
+.feedback input,
+.feedback textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback input:focus,
+.feedback textarea:focus {
+    border-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Efek kesalahan input */
+.feedback input.error {
+    border-color: red;
+    animation: shake 0.3s ease-in-out;
+}
+
+/* Animasi shake */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+/* Pesan error */
+.error-text {
+    color: yellow;
+    font-size: 12px;
+    display: none;
+    margin-top: -8px;
+    font-weight: bold;
+}
+
+.feedback button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+    box-shadow: 0 3px 6px rgba(255, 64, 129, 0.3);
+}
+
+.feedback button:hover {
+    background-color: #e60073;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(255, 64, 129, 0.4);
+}

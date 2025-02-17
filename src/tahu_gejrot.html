@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tahu Gejrot adalah makanan khas Cirebon yang terkenal dengan kuahnya yang manis pedas. Temukan resep, sejarah, dan galeri foto tahu gejrot di sini!">
+    <title>Tahu Gejrot - Kuliner Khas Cirebon</title>
+    <link rel="stylesheet" href="tahu_gejrot.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header>
+        <h1>Tahu Gejrot</h1>
+        <!-- Navigation -->
+        <nav role="navigation">
+            <div class="nav-container">
+                <!-- Menu Icon (Hamburger) -->
+                <div class="menu-icon" onclick="toggleMenu()">☰</div>
+                <!-- Close Icon -->
+                <div class="menu-close" onclick="toggleMenu()">✖</div>
+                <ul id="navMenu">
+                    <li><a href="#deskripsi">Deskripsi</a></li>
+                    <li><a href="#sejarah">Sejarah</a></li>
+                    <li><a href="#bahan">Bahan</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#resep">Resep</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Breadcrumb (Opsional untuk navigasi lebih baik) -->
+    <nav aria-label="breadcrumb">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li>Tahu Gejrot</li>
+        </ul>
+    </nav>
+
+    <section id="sejarah">
+        <h2>Sejarah Tahu Gejrot</h2>
+        <p>Tahu Gejrot berasal dari <strong>Desa Jatiseeng, Kecamatan Ciledug, Kabupaten Cirebon</strong>. Makanan ini awalnya muncul dari pabrik tahu milik keturunan Tionghoa sebelum tahun 1950-an. 
+        Setelah pemilik pabrik meninggalkan usaha mereka, mantan pekerja memutuskan untuk memproduksi tahu sendiri dan menjualnya. Seiring waktu, usaha ini berkembang dan menjadi kuliner khas Cirebon.</p>
+        <p>Nama "Gejrot" berasal dari suara "jrot jrot" yang terdengar saat air gula merah disiram dari botol ke atas tahu dalam piring gerabah.</p>
+        <img src="img/tahu_gejrot.jpeg" alt="Sejarah Tahu Gejrot" loading="lazy">
+    </section>
+
+    <section id="bahan">
+        <h2>Bahan Pembuatan</h2>
+        <ul>
+            <li>10 buah tahu pong matang</li>
+            <li>2 siung bawang merah</li>
+            <li>2 siung bawang putih</li>
+            <li>5-10 buah cabai rawit hijau</li>
+            <li>1/2 sdm gula merah (disisir)</li>
+            <li>1 sdt asam jawa (larutkan dengan air)</li>
+            <li>1 sdm kecap manis</li>
+            <li>250 mL air</li>
+            <li>Garam secukupnya</li>
+        </ul>
+    </section>
+
+    <!-- Galeri -->
+    <section id="galeri">
+        <h2>Galeri</h2>
+        <div class="gallery-container">
+            <img src="img/tahu_gejrot.jpg" alt="Tahu Gejrot khas Cirebon" loading="lazy">
+            <img src="img/tahu_gejrot.webp" alt="Tahu Gejrot dengan kuah pedas" loading="lazy">
+            <img src="img/tahu_gejrot.jpg" alt="Tahu Gejrot dalam piring" loading="lazy">
+        </div>
+    </section>
+
+    <section id="resep">
+        <h2>Resep & Cara Membuat</h2>
+        <p>1️⃣ Potong tahu pong menjadi beberapa bagian dan goreng hingga kering.</p>
+        <p>2️⃣ Haluskan bawang merah, bawang putih, cabai rawit, dan garam.</p>
+    
+        <div id="detail-resep" class="hidden">
+            <p>3️⃣ Rebus air hingga mendidih, lalu masukkan gula merah dan larutan asam jawa. Aduk hingga larut.</p>
+            <p>4️⃣ Tambahkan kecap manis dan aduk hingga merata.</p>
+            <p>5️⃣ Sajikan tahu goreng dalam piring, lalu tambahkan bumbu halus.</p>
+            <p>6️⃣ Siramkan kuah gula merah ke atas tahu.</p>
+        </div>
+    
+        <button id="toggle-resep" class="btn">Baca Selengkapnya</button>
+    </section>
+
+    <script src="tahu_gejrot.js" defer></script>
+</body>
+</html>
